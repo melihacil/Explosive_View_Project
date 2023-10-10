@@ -16,6 +16,7 @@ public class E_VManager : MonoBehaviour
     [SerializeField] private GameObject m_ObjectToExplode;
     [SerializeField] private float m_ExplosionSpeed = 0.1f;
     [SerializeField] private float m_ExplosionDuration = 2f;
+    [SerializeField] private float _ExplosionBoundary = 1.5f;
     bool isMoving = false;
     bool isInExplodedView = false;
     #endregion
@@ -42,7 +43,7 @@ public class E_VManager : MonoBehaviour
 
                 mesh.originalPosition = item.transform.position;
 
-                mesh.explodedPosition = item.bounds.center * 1.5f;
+                mesh.explodedPosition = item.bounds.center * _ExplosionBoundary;
 
                 childMeshRenderers.Add(mesh);
 
@@ -135,7 +136,7 @@ public class E_VManager : MonoBehaviour
 
                 mesh.originalPosition = item.transform.position;
 
-                mesh.explodedPosition = item.bounds.center * 1.5f;
+                mesh.explodedPosition = item.bounds.center * _ExplosionBoundary;
 
                 childMeshRenderers.Add(mesh);
 
